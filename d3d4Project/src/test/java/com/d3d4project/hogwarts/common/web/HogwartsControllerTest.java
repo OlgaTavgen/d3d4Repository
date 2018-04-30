@@ -2,9 +2,13 @@ package com.d3d4project.hogwarts.common.web;
 
 import org.springframework.ui.ModelMap;
 
+import com.d3d4project.hogwarts.common.model.HogwartsResultsResponse;
 import com.d3d4project.hogwarts.common.service.HogwartsService;
 import com.d3d4project.hogwarts.developers.model.HogwartsDeveloper;
+import com.d3d4project.hogwarts.developers.model.HogwartsDeveloperItem;
 import com.d3d4project.hogwarts.tasks.model.HogwartsTask;
+import com.d3d4project.hogwarts.tasks.model.HogwartsTaskItem;
+import com.google.common.collect.Lists;
 
 import javax.servlet.http.HttpServletResponse;
 import static org.mockito.Mockito.*;
@@ -13,6 +17,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
@@ -21,25 +26,46 @@ import static org.fest.assertions.Assertions.assertThat;
 @SuppressWarnings("nls")
 @RunWith(MockitoJUnitRunner.class)
 public class HogwartsControllerTest 
-{	
+{
+	@InjectMocks
+	private HogwartsController hogwartsController;
+	
 	@Mock
 	public HogwartsService hogwartsService;
 	
 	@Mock
 	public HogwartsService.HogwartsRequest hogwartsRequest;
 	
-	private HogwartsController hogwartsController;
-	private String team;
+	@Mock
+	public HogwartsResultsResponse hogwartsResultsResponse;
+	
+	@Mock
+	public HogwartsDeveloperItem hogwartsDeveloperItem;
+	
+	@Mock
+	public HogwartsTaskItem hogwartsTaskItem;
+	
+	@Mock
 	private HogwartsDeveloper hogwartsDeveloper;
+	
+	@Mock
 	private HogwartsTask hogwartsTask;
+	
+	private String team;
+	
+	private HogwartsResultsResponseDTO hogwartsResultsResponseDTO;
 	
 	@Before
 	public void init()
 	{
-		hogwartsController = new HogwartsController();
 		hogwartsTask = new HogwartsTask();
 		team = "Slytherin";
 		when(hogwartsService.forTeam(team)).thenReturn(hogwartsRequest);
+		when(hogwartsRequest.retrieveResults()).thenReturn(hogwartsResultsResponse);
+		when(hogwartsResultsResponse.getDeveloperItem()).thenReturn(hogwartsDeveloperItem);
+		when(hogwartsResultsResponse.getTaskItem()).thenReturn(hogwartsTaskItem);
+		when(hogwartsDeveloperItem.getDevelopers()).thenReturn(Lists.newArrayList(hogwartsDeveloper));
+		when(hogwartsTaskItem.getTasks()).thenReturn(Lists.newArrayList(hogwartsTask));
 		
 		createStubbedDeveloper();
 	}
@@ -50,15 +76,14 @@ public class HogwartsControllerTest
 		assertThat(hogwartsController.hogwartsHomePage()).isEqualTo("/home.html");
 	}
 	
-//	@Test
-//	public void testRetrieveResults()
-//	{
-//		hogwartsResultsResponseDTO = hogwartsController.retrieveResults(team);
-//		
-//		assertThat(hogwartsResultsResponseDTO.getDevelopers()).isNotNull();
-//		assertThat(hogwartsResultsResponseDTO.getTasks()).isNotNull();
-//		assertThat(hogwartsResultsResponseDTO.getTeam()).isNotNull();
-//	}
+	@Test
+	public void testRetrieveResults()
+	{
+		hogwartsResultsResponseDTO = hogwartsController.retrieveResults(team);
+		
+		assertThat(hogwartsResultsResponseDTO.getDevelopers()).isNotNull();
+		assertThat(hogwartsResultsResponseDTO.getTasks()).isNotNull();
+	}
 	
 	@Test
 	public void testSaveDeveloper()
