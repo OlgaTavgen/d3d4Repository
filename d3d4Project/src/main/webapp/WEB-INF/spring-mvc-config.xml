@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<mvc:annotation-driven />
+	<context:annotation-config />
+	<context:component-scan base-package="com.mentoringproject" />
+	
+ 	<mvc:default-servlet-handler /> 
+ 	
+<!--  	<bean id="aspectBean1" class="com.MyClassNameForAspect1" />
+    <bean id="aspectBean2" class="com.MyClassNameForAspect2" />  
+  
+    <aop:aspectj-autoproxy>
+        <aop:include name="aspectBean1"/>
+        <aop:include name="aspectBean2"/>
+    </aop:aspectj-autoproxy> -->
+	
+	
+<!--	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/pages/</value>
+		</property>
+		<property name="suffix">
+			<value>.html</value>
+		</property>
+	</bean>  -->
+	
+ <!-- 	<mvc:resources mapping="/pages/**" location="/pages/" />  -->
+		
+<!-- 	<context:component-scan base-package="com.mentoringproject"> -->
+ <!--	    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" /> -->
+<!-- 	</context:component-scan>	 -->
+	
+<!-- 	<bean id="hogwartsService" class="com.mentoringproject.hogwarts.service.HogwartsService" /> -->
+	
+<!-- 	<bean id="hogwartsController" class="com.mentoringproject.hogwarts.web.HogwartsController">
+	     <property name="hogwartsService" ref="hogwartsService" />
+	</bean> -->
+	
+<!-- <bean id="hogwartsController" class="com.mentoringproject.hogwarts.web.HogwartsController" />  -->	
+
+ <!--  <bean id="performanceMonitor" class="org.springframework.aop.interceptor.PerformanceMonitorInterceptor" /> -->
+
+</beans>
