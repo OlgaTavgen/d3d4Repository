@@ -1,0 +1,87 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+  http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+  
+<!--   <context:property-placeholder ignore-unresolvable="false" ignore-resource-not-found="true"
+      location="classpath:src/main/resources/beans-props.properties" /> -->
+      
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+  	<property name="location">
+    	<value>classpath:beans-props.properties</value>
+   	</property>
+  </bean>
+  
+  <bean id="HogwartsBean" class="com.mentoringproject.springcore.Hogwarts">
+    <!-- java.util.List -->
+    <property name="teams">
+      <list>
+        <ref bean="HogwartsTeamBean" />
+        <bean class="com.mentoringproject.hogwarts.teams.model.HogwartsTeam">
+          <property name="id" value="id2" />
+          <property name="name" value="name2" />         
+        </bean>
+      </list>
+    </property>
+  </bean>
+  
+  <bean id="HogwartsTeamBean" class="com.mentoringproject.hogwarts.teams.model.HogwartsTeam">
+   		  <property name="id" value="id1" />
+          <property name="name" value="name1" />
+          <property name="developers">
+          	<set>
+          	 	<ref bean="HogwartsDeveloperBean" />  
+          	 	<bean class="com.mentoringproject.hogwarts.developers.model.HogwartsDeveloper">
+          	 		<property name="tasks" >
+         				<map>
+         					<entry key-ref="HogwartsDeveloperBean" value-ref="HogwartsTaskBean" />         			
+         				</map>        
+         			</property>
+        		</bean>
+          	</set>        
+          </property>
+  </bean>
+  
+    <bean id="HogwartsDeveloperBean" class="com.mentoringproject.hogwarts.developers.model.HogwartsDeveloper">       		
+    	<property name="firstName" value="firstName1" />
+        <property name="lastName" value="lastName1" />
+        <property name="nickname" value="nickname1" />
+        <property name="primarySkill" value="primarySkill1" />  
+        <property name="level" value="${developer.level}" />   	 		 
+  	</bean>
+  	
+  	 <bean id="HogwartsTaskBean" class="com.mentoringproject.hogwarts.tasks.model.HogwartsTask">       		
+    	<property name="id" value="id1" />
+   		<property name="type" value="type1" />
+        <property name="description" value="description1" />
+        <property name="estimate" value="estimate1" />
+        <property name="priority" value="priority1" />
+        <property name="severity" value="severity1" />  
+        <property name="props">
+        	<props>
+        		<prop key="open">open</prop>
+        		<prop key="inprogress">inProgress</prop> 
+        		<prop key="readytotest">readyToTest</prop>        
+        		<prop key="closed">closed</prop>
+        	</props>
+        </property>	 		 
+  	</bean>
+  	
+  	 <!-- Initialization for data source -->
+   <bean id="dataSource" 
+      class = "org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name = "driverClassName" value = "com.mysql.jdbc.Driver"/>
+      <property name = "url" value = "jdbc:mysql://localhost:3306/hogwarts"/>
+      <property name = "username" value = "root"/>
+      <property name = "password" value = "hogwarts"/>
+   </bean>
+   
+   <!-- Definition for studentJDBCTemplate bean -->
+   <bean id = "hogwartsDeveloperDaoImpl" 
+      class = "com.mentoringproject.hogwarts.developers.dao.HogwartsDeveloperDaoImpl">
+      <property name = "dataSource" ref = "dataSource" />    
+   </bean>
+  
+</beans>

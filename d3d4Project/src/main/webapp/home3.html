@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta charset = "utf-8">
+<meta http-equiv = "X-UA-Compatible" content = "IE = edge">
+<meta name = "viewport" content = "width = device-width, initial-scale = 1">
+
+<link href = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel = "stylesheet">          
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>    
+<script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>   
+       
+<title>dashboard</title>
+</head>
+<body>
+  <div class="container">
+   	<div class = "dropdown">
+   		<button type = "button" class = "btn dropdown-toggle" id = "dropdownMenu1" data-toggle = "dropdown">
+      		Teams
+      		<span class = "caret"></span>
+   		</button>
+   
+  		 <ul class = "dropdown-menu" role = "menu" aria-labelledby = "dropdownMenu1">
+      		<li id="li-element" role = "presentation">
+         		<a id='a-element' role = "menuitem" tabindex = "-1" href = "#">Gryffindor</a>
+      		</li>
+      
+      		<li role = "presentation">
+         		<a id='a-element' role = "menuitem" tabindex = "-1" href = "#">Hufflepuf</a>
+      		</li>
+      
+      		<li role = "presentation">
+         		<a id='a-element' role = "menuitem" tabindex = "-1" href = "#">Ravenclaw</a>
+      		</li>
+      		
+      		<li role = "presentation">
+         		<a id='a-element' role = "menuitem" tabindex = "-1" href = "#">Slytherin</a>
+      		</li>
+   		</ul>   
+	</div>
+	</div>
+	
+	<div class="col-md-6">
+	
+	</div>
+</body>
+
+<!-- <script src = "/js/hogwartsDashboard.js"></script>    -->
+
+<script>
+var xhr = new XMLHttpRequest();
+
+var elements = document.getElementsByTagName('a');
+
+for (var i=0; i<elements.length; i++)	{				
+	
+		var text = elements[i].textContent;
+	
+	elements[i].addEventListener('click', function() {
+								
+		var name = 'Gryffindor';
+			
+		xhr.open('GET', 'dashboard.json?team='+text, false);
+		
+		xhr.send();
+		
+	 	if (xhr.status != 200)
+			{
+			alert(xhr.status + ':' + xhr.statusText);
+			}
+		else {
+			 alert(xhr.responseText);
+			
+			 var json = JSON.parse(xhr.responseText);
+			
+		 	 var table = document.createElement("table");
+			
+			 var tr = document.createElement('tr');
+			 
+			 var row1 = document.createElement('td');
+			 row1.innerHTML = "First Name";
+			 tr.appendChild(row1);
+			 
+			 var row2 = document.createElement('td');
+			 row2.innerHTML = "Last Name";
+			 tr.appendChild(row2);
+			 
+			 var row3 = document.createElement('td');
+			 row3.innerHTML = "Nickname";
+			 tr.appendChild(row3);
+			 
+			 var row4 = document.createElement('td');
+			 row4.innerHTML = "Primary Skill";
+			 tr.appendChild(row3);
+			 
+			 table.appendChild(tr);
+			 
+			 for(var developer in json.developers) {
+				 
+				 var developer = json[developer];				 
+				 var tr = document.createElement('tr');
+				 
+				 var td1 = document.createElement('td');
+				 td1.innerHTML = developer.firstName;
+				 
+				 var td2 = document.createElement('td');
+				 td2.innerHTML = developer.lastName;
+				 
+				 var td3 = document.createElement('td');
+				 td3.innerHTML = developer.nickname;
+				 
+				 var td4 = document.createElement('td');
+				 td4.innerHTML = developer.primarySkill;
+				 
+				 table.appendChild(tr);
+			 }
+			 
+			 document.body.appendChild(table);
+		}  			
+		
+	})			
+}
+	
+</script>
+
+</html>
