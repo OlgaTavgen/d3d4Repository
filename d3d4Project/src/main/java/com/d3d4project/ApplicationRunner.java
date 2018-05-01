@@ -25,6 +25,8 @@ public class ApplicationRunner
 		HogwartsDeveloperDaoImpl hogwartsDeveloperDaoImpl = (HogwartsDeveloperDaoImpl) context.getBean(DEVELOPER_DAO_NAME);
 		
 		manipulateDeveloperDao(hogwartsDeveloperDaoImpl);
+		
+		// tiny change to trigger Jenkins job
 	}
 	
 	private static void generateDevelopersXml()
