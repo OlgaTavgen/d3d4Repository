@@ -26,7 +26,7 @@ public class ApplicationRunner
 		
 		manipulateDeveloperDao(hogwartsDeveloperDaoImpl);
 		
-		// tiny change to trigger Jenkins job 2
+		// tiny change to trigger Jenkins job
 	}
 	
 	private static void generateDevelopersXml()
