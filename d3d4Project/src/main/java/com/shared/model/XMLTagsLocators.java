@@ -1,6 +1,6 @@
 package com.shared.model;
 
-public class XMLTagsLocators {
+public final class XMLTagsLocators {
 	
 	// Project
 	public final static String PROJECT = "project";

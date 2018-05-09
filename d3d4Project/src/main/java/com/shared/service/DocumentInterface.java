@@ -4,9 +4,7 @@ import org.w3c.dom.Element;
 
 public interface DocumentInterface {
 	
-	void buildDocument();
-	
-	
+	void buildDocument();	
 	
 	default Element createElement(final Document doc, final String elementName, final String attrKey, final String attrValue)
 	{

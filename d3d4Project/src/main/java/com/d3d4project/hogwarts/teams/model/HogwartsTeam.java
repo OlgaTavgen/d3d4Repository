@@ -11,7 +11,6 @@ public class HogwartsTeam
 	private String id = StringUtils.EMPTY;
 	private String name = StringUtils.EMPTY;
 	private Set<HogwartsDeveloper> developers;
-//	private Map tasks;
 	
 	public String getId()
 	{

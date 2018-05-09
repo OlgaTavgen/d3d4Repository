@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.d3d4project.hogwarts.developers.dao.HogwartsDeveloperDaoImpl;
+import static com.shared.model.HogwartsDeveloperLocators.*;
 import com.shared.service.DeveloperDocumentXMLParser;
 import com.shared.service.TaskDocumentXMLParser;
 
@@ -44,25 +45,30 @@ public class ApplicationRunner
 	
 	private static void manipulateDeveloperDao(final HogwartsDeveloperDaoImpl hogwartsDeveloperDaoImpl)
 	{
-		hogwartsDeveloperDaoImpl.addDeveloper("Olga", "Tavgen", "java", "otavgen", "2", 3);
+		hogwartsDeveloperDaoImpl.addDeveloper(
+				DEV1_FIRST_NAME,
+				DEV1_LAST_NAME,
+				DEV1_PRIMARY_SKILL,
+				DEV1_NICKNAME,
+				DEV1_LEVEL,
+				DEV1_TEAM);
 		
-		hogwartsDeveloperDaoImpl.deleteDeveloper("Olga");
+		hogwartsDeveloperDaoImpl.deleteDeveloper(DEV1_FIRST_NAME);
 		
-		System.out.println("firstName " + hogwartsDeveloperDaoImpl.getDeveloper("Tavgen").getFirstName());
+		System.out.println("firstName " + hogwartsDeveloperDaoImpl.getDeveloper(DEV1_LAST_NAME).getFirstName());
 		
-		hogwartsDeveloperDaoImpl.updateDeveloperFirstName("Olga2", "Olga");		
-		System.out.println("changed firstName " + hogwartsDeveloperDaoImpl.getDeveloper("Tavgen").getFirstName());
+		hogwartsDeveloperDaoImpl.updateDeveloperFirstName(DEV2_FIRST_NAME, DEV1_FIRST_NAME);		
+		System.out.println("changed firstName " + hogwartsDeveloperDaoImpl.getDeveloper(DEV1_FIRST_NAME).getFirstName());
 		
-		hogwartsDeveloperDaoImpl.updateDeveloperLastName("Tavgen2", "Olga2");		
-		System.out.println("changed lastName " + hogwartsDeveloperDaoImpl.getDeveloper("Tavgen2").getLastName());
+		hogwartsDeveloperDaoImpl.updateDeveloperLastName(DEV2_LAST_NAME, DEV2_FIRST_NAME);		
+		System.out.println("changed lastName " + hogwartsDeveloperDaoImpl.getDeveloper(DEV2_LAST_NAME).getLastName());
 		
-		hogwartsDeveloperDaoImpl.updateDeveloperPrimarySkill("java2", "Olga2");
-		System.out.println("changed primarySkill " + hogwartsDeveloperDaoImpl.getDeveloper("Tavgen2").getPrimarySkill());
+		hogwartsDeveloperDaoImpl.updateDeveloperPrimarySkill(DEV2_PRIMARY_SKILL, DEV2_FIRST_NAME);
+		System.out.println("changed primarySkill " + hogwartsDeveloperDaoImpl.getDeveloper(DEV2_LAST_NAME).getPrimarySkill());
 		
-		hogwartsDeveloperDaoImpl.updateDeveloperLevel("level2", "Olga2");		
-		System.out.println("changed Level " + hogwartsDeveloperDaoImpl.getDeveloper("Tavgen2").getLevel());
+		hogwartsDeveloperDaoImpl.updateDeveloperLevel(DEV2_PRIMARY_SKILL, DEV2_FIRST_NAME);		
+		System.out.println("changed Level " + hogwartsDeveloperDaoImpl.getDeveloper(DEV2_LAST_NAME).getLevel());
 		
-		System.out.println("get all developers " + hogwartsDeveloperDaoImpl.getDevelopers());		
-		System.out.println("simple change");
+		System.out.println("get all developers " + hogwartsDeveloperDaoImpl.getDevelopers());
 	}
 }
