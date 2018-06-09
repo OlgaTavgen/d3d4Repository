@@ -13,20 +13,11 @@
 
 	<mvc:annotation-driven />
 	<context:annotation-config />
-	<context:component-scan base-package="com.mentoringproject" />
+	<context:component-scan base-package="com.d3d4Project" />
 	
  	<mvc:default-servlet-handler /> 
- 	
-<!--  	<bean id="aspectBean1" class="com.MyClassNameForAspect1" />
-    <bean id="aspectBean2" class="com.MyClassNameForAspect2" />  
-  
-    <aop:aspectj-autoproxy>
-        <aop:include name="aspectBean1"/>
-        <aop:include name="aspectBean2"/>
-    </aop:aspectj-autoproxy> -->
 	
-	
-<!--	<bean id="viewResolver"
+	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
 			<value>/WEB-INF/pages/</value>
@@ -34,23 +25,7 @@
 		<property name="suffix">
 			<value>.html</value>
 		</property>
-	</bean>  -->
+	</bean>
 	
- <!-- 	<mvc:resources mapping="/pages/**" location="/pages/" />  -->
-		
-<!-- 	<context:component-scan base-package="com.mentoringproject"> -->
- <!--	    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
-	    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" /> -->
-<!-- 	</context:component-scan>	 -->
-	
-<!-- 	<bean id="hogwartsService" class="com.mentoringproject.hogwarts.service.HogwartsService" /> -->
-	
-<!-- 	<bean id="hogwartsController" class="com.mentoringproject.hogwarts.web.HogwartsController">
-	     <property name="hogwartsService" ref="hogwartsService" />
-	</bean> -->
-	
-<!-- <bean id="hogwartsController" class="com.mentoringproject.hogwarts.web.HogwartsController" />  -->	
-
- <!--  <bean id="performanceMonitor" class="org.springframework.aop.interceptor.PerformanceMonitorInterceptor" /> -->
-
+ 	<mvc:resources mapping="/pages/**" location="/pages/" />
 </beans>
