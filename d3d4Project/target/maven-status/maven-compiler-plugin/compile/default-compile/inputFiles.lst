@@ -9,6 +9,7 @@ D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\shared\model\dev
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\shared\service\TaskDocumentXMLParser.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\developers\service\HogwartsDeveloperService.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\tasks\dao\HogwartsTaskDaoImpl.java
+D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\cxf\services\CxfService.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\tasks\model\HogwartsTask.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\common\model\HogwartsResultsResponse.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\tasks\service\HogwartsTaskService.java
@@ -22,9 +23,11 @@ D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogw
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\shared\service\DocumentInterface.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\developers\model\HogwartsDeveloperItem.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\shared\model\teams\TeamEnum.java
+D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\cxf\services\CfxServiceOperator.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\shared\model\XMLTagsLocators.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\common\web\HogwartsController.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\ApplicationRunner.java
+D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\cxf\CxfApplicationRunner.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\teams\model\HogwartsTeam.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\shared\model\tasks\TaskEnum.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\tasks\web\HogwartsTaskDTO.java
