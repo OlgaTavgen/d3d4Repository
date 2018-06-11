@@ -1,11 +1,13 @@
 package com.d3d4project;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.d3d4project.hogwarts.developers.dao.HogwartsDeveloperDaoImpl;
+import com.d3d4project.monitoringAndTroubleshooting.CustomFileReader;
 import com.shared.service.DeveloperDocumentXMLParser;
 import com.shared.service.TaskDocumentXMLParser;
 
@@ -13,10 +15,14 @@ public class ApplicationRunner
 {	
 	private final static String XML_CLASSPATH = "file:src/main/resources/spring-beans.xml";
 	private final static String DEVELOPER_DAO_NAME = "hogwartsDeveloperDaoImpl";
+	private final static String FILE_PATH = "src/main/resources/txt/princessOfMars.txt";
 	
 	public static void main(String args[]) throws InstantiationException, IllegalAccessException,
     NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException 
 	{
+		// monitoring and troubleshooting module
+		final List<String> extractedSymbols = readFileAndExtractSymbols(FILE_PATH);
+		
 		generateDevelopersXml();
 		generateTasksXml();
 	
@@ -25,8 +31,11 @@ public class ApplicationRunner
 		HogwartsDeveloperDaoImpl hogwartsDeveloperDaoImpl = (HogwartsDeveloperDaoImpl) context.getBean(DEVELOPER_DAO_NAME);
 		
 		manipulateDeveloperDao(hogwartsDeveloperDaoImpl);
-		
-		// tiny change to trigger Jenkins job 2
+	}
+	
+	private static List<String> readFileAndExtractSymbols(final String filePath)
+	{
+		return new CustomFileReader().readFileAndExtractSymbols(filePath);
 	}
 	
 	private static void generateDevelopersXml()
