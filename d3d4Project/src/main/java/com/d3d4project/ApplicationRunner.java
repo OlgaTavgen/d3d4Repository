@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.d3d4project.hogwarts.developers.dao.HogwartsDeveloperDaoImpl;
-import com.d3d4project.multithreading.CustomSceduledExecutor;
+import com.d3d4project.multithreadingAndConcurrecncy.CustomSceduledExecutor;
 import com.shared.service.DeveloperDocumentXMLParser;
 import com.shared.service.TaskDocumentXMLParser;
 
@@ -18,21 +18,17 @@ public class ApplicationRunner
 	public static void main(String args[]) throws InstantiationException, IllegalAccessException,
     NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException 
 	{
-//		generateDevelopersXml();
-//		generateTasksXml();
+		generateDevelopersXml();
+		generateTasksXml();
 		
 		// multithreading and concurrency module
 		generateValueAndWriteItToTextFile();
-		
-		System.out.println("11111");
 	
-//		ApplicationContext context = getContext(XML_CLASSPATH);
-//		
-//		HogwartsDeveloperDaoImpl hogwartsDeveloperDaoImpl = (HogwartsDeveloperDaoImpl) context.getBean(DEVELOPER_DAO_NAME);
-//		
-//		manipulateDeveloperDao(hogwartsDeveloperDaoImpl);
+		ApplicationContext context = getContext(XML_CLASSPATH);
 		
-		// tiny change to trigger Jenkins job 2
+		HogwartsDeveloperDaoImpl hogwartsDeveloperDaoImpl = (HogwartsDeveloperDaoImpl) context.getBean(DEVELOPER_DAO_NAME);
+		
+		manipulateDeveloperDao(hogwartsDeveloperDaoImpl);
 	}
 	
 	private static void generateValueAndWriteItToTextFile()
