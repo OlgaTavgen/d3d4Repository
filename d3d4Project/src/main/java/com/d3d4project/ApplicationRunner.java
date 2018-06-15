@@ -18,17 +18,17 @@ public class ApplicationRunner
 	public static void main(String args[]) throws InstantiationException, IllegalAccessException,
     NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException 
 	{
-		generateDevelopersXml();
-		generateTasksXml();
+//		generateDevelopersXml();
+//		generateTasksXml();
 		
 		// multithreading and concurrency module
 		generateValueAndWriteItToTextFile();
 	
-		ApplicationContext context = getContext(XML_CLASSPATH);
-		
-		HogwartsDeveloperDaoImpl hogwartsDeveloperDaoImpl = (HogwartsDeveloperDaoImpl) context.getBean(DEVELOPER_DAO_NAME);
-		
-		manipulateDeveloperDao(hogwartsDeveloperDaoImpl);
+//		ApplicationContext context = getContext(XML_CLASSPATH);
+//		
+//		HogwartsDeveloperDaoImpl hogwartsDeveloperDaoImpl = (HogwartsDeveloperDaoImpl) context.getBean(DEVELOPER_DAO_NAME);
+//		
+//		manipulateDeveloperDao(hogwartsDeveloperDaoImpl);
 	}
 	
 	private static void generateValueAndWriteItToTextFile()

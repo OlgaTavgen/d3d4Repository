@@ -6,9 +6,12 @@ import java.io.IOException;
 import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
+
+import com.beust.jcommander.internal.Lists;
 
 public class CustomSceduledExecutor 
 {
@@ -18,16 +21,45 @@ public class CustomSceduledExecutor
 	private final static String FILE_PATH = "src/main/resources/txt/";
 	private final static String FILE_NAME = "multithreading.txt";
 	
-	final static Logger logger = Logger.getLogger(CustomSceduledExecutor.class); 
+	final static Logger logger = Logger.getLogger(CustomSceduledExecutor.class);
 	
 	final SimpleNumberGenerator simpleNumberGenerator = new SimpleNumberGenerator();
 	
+	final Semaphore semaphoreConsumer = new Semaphore(0);
+	final Semaphore semaphoreProducer = new Semaphore(1);
+
 	public void generateValueAndWriteToFileForThreadsNumber(final int threadsNumber)
+	{
+		final String[] values = new String[threadsNumber];
+		
+		generateValuesTimesAndCollectToList(threadsNumber, values);
+		updateTextFileWithValues(threadsNumber, values);
+	}
+	
+	private void generateValuesTimesAndCollectToList(final int times, final String[] values)
+	{
+		for (int i = 0; i < times; i++)
+		{			
+			final ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();			
+			final int numberToPullToGenerator = i;
+			
+			service.schedule(new Runnable() {
+				
+				@Override
+				public void run() {
+
+					values[numberToPullToGenerator] = generateValue(numberToPullToGenerator);
+				}
+			}, 0, TimeUnit.SECONDS);
+		}	
+	}
+	
+	private void updateTextFileWithValues(final int times, final String[] values)
 	{
 		final BufferedWriter bufferedWriter = getBufferredWriter();
 		
-		for (int i = 0; i < threadsNumber; i++)
-		{
+		for (int i = 0; i < times; i++)
+		{			
 			final ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();			
 			final int numberToPullToGenerator = i;
 			
@@ -36,20 +68,52 @@ public class CustomSceduledExecutor
 				@Override
 				public void run() {
 					
-					final int generatedNumber = simpleNumberGenerator.generateNumber(numberToPullToGenerator);
-					final String convertedNumberValue = generatedNumber + CONVERT_SUFFIX;
+					try
+					{
+						semaphoreProducer.acquire();
+						System.out.println("semaphoreProducer acquired" + numberToPullToGenerator);
+					}
+					catch (final InterruptedException ie)
+					{
+						logger.error("Thread was interrupted before/during the activity", ie);
+					}
 					
 					try
 					{
-						updateFileWithConvertedNumberValue(bufferedWriter, convertedNumberValue);
+						/* values[] is populated correctly by all threads; however, I'm getting some NPEs in case
+						   some array entry has still not been populated - need additional wait mechanism here
+						   probably with new volatile boolean flag
+						*/
+						updateFileWithConvertedNumberValue(bufferedWriter, values[numberToPullToGenerator]);//												
 					}
 					catch (final NullPointerException npe)
 					{
 						logger.error("No Bufferred Writer instantiated", npe);
-					}					
+					}
+					semaphoreConsumer.release();
+					System.out.println("semaphoreConsumer released" + numberToPullToGenerator);
 				}
-			}, generateDelayUpToFiveSeconds(), TimeUnit.SECONDS);
-		}		
+			}, 1, TimeUnit.SECONDS);
+		}	
+	}
+	
+	private String generateValue(final int index)
+	{
+		try
+		{
+			semaphoreConsumer.acquire();
+			System.out.println("semaphoreConsumer acquired" + index);
+		}
+		catch (final InterruptedException ie)
+		{
+			logger.error("Thread was interrupted before/during the activity", ie);
+		}
+		final int generatedNumber = simpleNumberGenerator.generateNumber(index);
+		final String convertedNumberValue = generatedNumber + CONVERT_SUFFIX;
+		semaphoreProducer.release();
+		System.out.println("semaphoreProducer released" + index);
+		
+		return convertedNumberValue;
 	}
 	
 	private BufferedWriter getBufferredWriter()
