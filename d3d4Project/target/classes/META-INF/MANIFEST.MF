@@ -1,5 +1,11 @@
 Manifest-Version: 1.0
+Implementation-Title: d3d4Project
+Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: Olga_Tavgen
+Implementation-Vendor-Id: com.mentoring
 Build-Jdk: 1.8.0_161
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/d3d4Project
 Created-By: Maven Integration for Eclipse
+Main-Class: io.pivotal.microservices.services.Main
 

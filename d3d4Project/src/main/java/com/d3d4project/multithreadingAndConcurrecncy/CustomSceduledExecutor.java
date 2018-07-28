@@ -8,10 +8,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+import com.d3d4project.multithreadingAndConcurrecncy.SimpleNumberGenerator;
 
 import org.apache.log4j.Logger;
-
-import com.beust.jcommander.internal.Lists;
 
 public class CustomSceduledExecutor 
 {
