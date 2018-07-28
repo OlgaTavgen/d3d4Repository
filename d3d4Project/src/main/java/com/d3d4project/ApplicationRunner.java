@@ -15,21 +15,21 @@ public class ApplicationRunner
 	private final static String XML_CLASSPATH = "file:src/main/resources/spring-beans.xml";
 	private final static String DEVELOPER_DAO_NAME = "hogwartsDeveloperDaoImpl";
 	
-	public static void main(String args[]) throws InstantiationException, IllegalAccessException,
-    NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException 
-	{
-//		generateDevelopersXml();
-//		generateTasksXml();
-		
-		// multithreading and concurrency module
-		generateValueAndWriteItToTextFile();
-	
-//		ApplicationContext context = getContext(XML_CLASSPATH);
+//	public static void main(String args[]) throws InstantiationException, IllegalAccessException,
+//    NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException 
+//	{
+////		generateDevelopersXml();
+////		generateTasksXml();
 //		
-//		HogwartsDeveloperDaoImpl hogwartsDeveloperDaoImpl = (HogwartsDeveloperDaoImpl) context.getBean(DEVELOPER_DAO_NAME);
-//		
-//		manipulateDeveloperDao(hogwartsDeveloperDaoImpl);
-	}
+//		// multithreading and concurrency module
+//		generateValueAndWriteItToTextFile();
+//	
+////		ApplicationContext context = getContext(XML_CLASSPATH);
+////		
+////		HogwartsDeveloperDaoImpl hogwartsDeveloperDaoImpl = (HogwartsDeveloperDaoImpl) context.getBean(DEVELOPER_DAO_NAME);
+////		
+////		manipulateDeveloperDao(hogwartsDeveloperDaoImpl);
+//	}
 	
 	private static void generateValueAndWriteItToTextFile()
 	{
