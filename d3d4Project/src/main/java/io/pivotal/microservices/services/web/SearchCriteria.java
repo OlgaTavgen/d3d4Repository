@@ -4,6 +4,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 
 public class SearchCriteria {
+	private String productName;
+	
 	private String accountNumber;
 
 	private String searchText;
@@ -67,5 +69,13 @@ public class SearchCriteria {
 				: "")
 				+ (StringUtils.hasText(searchText) ? " text: " + searchText
 						: "");
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 }

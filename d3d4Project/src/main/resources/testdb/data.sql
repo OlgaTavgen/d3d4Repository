@@ -20,3 +20,7 @@ insert into T_ACCOUNT (NUMBER, NAME) values ('123456017', 'Rachel Vogt');
 insert into T_ACCOUNT (NUMBER, NAME) values ('123456018', 'Julia DeLong');
 insert into T_ACCOUNT (NUMBER, NAME) values ('123456019', 'Mark T. Rizzoli');
 insert into T_ACCOUNT (NUMBER, NAME) values ('123456020', 'Maria J. Angelo');
+
+insert into T_PRODUCT (ID, PRODUCTNAME) values ('00001', 'product1');
+insert into T_PRODUCT (ID, PRODUCTNAME) values ('00002', 'product2');
+insert into T_PRODUCT (ID, PRODUCTNAME) values ('00003', 'product3');
