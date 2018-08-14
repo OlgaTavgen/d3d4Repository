@@ -52,24 +52,20 @@ public final class ReactorUtility
 		return elementsList;
 	}
 	
-	public static List<String> deleteStringFluxElementsFromList(
+	public static void deleteStringFluxElementsFromList(
 			final List<String> sourceList, final String...elements)
 	{
 		getStringFlux(elements)
 		.log()
 		.subscribe(sourceList::remove);
-		
-		return sourceList;
 	}
 	
-	public static List<Integer> deleteIntegerFluxElementsFromList(
+	public static void deleteIntegerFluxElementsFromList(
 			final List<Integer> sourceList, final Integer...elements)
 	{
 		getIntegerFlux(elements)
 		.log()
 		.subscribe(sourceList::remove);
-		
-		return sourceList;
 	}
 	
 	public static List<Integer> multiplyStringFluxElements(
