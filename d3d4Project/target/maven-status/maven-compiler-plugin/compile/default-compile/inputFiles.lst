@@ -12,12 +12,14 @@ D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\shared\model\dev
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\shared\service\TaskDocumentXMLParser.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\developers\service\HogwartsDeveloperService.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\tasks\dao\HogwartsTaskDaoImpl.java
+D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\epam\podcast\services\PodcastController.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\io\pivotal\microservices\services\web\SearchCriteria.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\developers\service\DeveloperMapper.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\io\pivotal\microservices\accounts\Account.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\developers\web\HogwartsDeveloperItemDTO.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\io\pivotal\microservices\services\web\WebProductsController.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\common\service\HogwartsService.java
+D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\epam\podcast\Application.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\developers\model\HogwartsDeveloperItem.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\io\pivotal\microservices\accounts\AccountRepository.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\io\pivotal\microservices\accounts\AccountsConfiguration.java
@@ -28,6 +30,7 @@ D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\io\pivotal\microserv
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\tasks\web\HogwartsTaskDTO.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\io\pivotal\microservices\services\web\Account.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\tasks\dao\HogwartsTaskDao.java
+D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\epam\podcast\beans\Podcast.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\io\pivotal\microservices\accounts\AccountsController.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\common\web\HogwartsResultsResponseDTO.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\common\web\HogwartsControllerAdvice.java
@@ -39,6 +42,7 @@ D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogw
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\io\pivotal\microservices\services\web\Product.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\hogwarts\tasks\service\HogwartsTaskService.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\io\pivotal\microservices\services\web\WebServer.java
+D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\epam\podcast\SwaggerConfig.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\com\d3d4project\multithreadingAndConcurrecncy\NumberGenerator.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\io\pivotal\microservices\products\ProductRepository.java
 D:\WORKSPACES\d3d4\d3d4Repository\d3d4Project\src\main\java\io\pivotal\microservices\products\ProductsHomeController.java
